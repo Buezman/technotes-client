@@ -6,6 +6,7 @@ import usePersist from "../../hooks/usePersist";
 import { selectCurrentToken } from "./authSlice";
 
 import React from "react";
+import { PulseLoader } from "react-spinners";
 
 const PersistLogin = () => {
     const [persist] = usePersist();
@@ -42,7 +43,7 @@ const PersistLogin = () => {
         content = <Outlet />;
     } else if (isLoading) {
         console.log("...loading");
-        content = <p>...Loading</p>;
+        content = <PulseLoader color="#FFF" />;
     } else if (isError) {
         console.log("error");
         content = (
